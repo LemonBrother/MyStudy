@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import example.liumin.mystudy.ItemManager;
 import example.liumin.mystudy.R;
 import example.liumin.mystudy.base.BaseActivity;
@@ -33,7 +36,7 @@ public class IpcActivity extends BaseActivity {
     public  TextView tv;
     //以下是messenger用到的成员变量
     private Messenger mMessenger;//实际上这是service中的messenger对象
-    public boolean isbind;
+    public boolean isbind,isaidlbind=false;
 
 
     //以下是AIDL用到的成员变量
@@ -114,8 +117,35 @@ public class IpcActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent1 = new Intent(getApplicationContext(), AidlService.class);
-                bindService(intent1, AidlConnection, BIND_AUTO_CREATE);
+                if(isaidlbind){
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            try {
+                                aidlitemmanager.addItem(new Item(new SimpleDateFormat("mmss").format(new Date())));
+                                aidlitemmanager.getItemList();
+                            } catch (RemoteException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
+
+
+
+                }else{
+                    Intent intent1 = new Intent(getApplicationContext(), AidlService.class);
+                    bindService(intent1, AidlConnection, BIND_AUTO_CREATE);
+                }
+
+            }
+        });
+
+
+        unaidl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                unbindService(AidlConnection);
             }
         });
 
@@ -130,8 +160,12 @@ public class IpcActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        if(mServiceConnection!=null  || isbind){
+        if(mServiceConnection!=null  && isbind){
             unbindService(mServiceConnection);
+        }
+
+        if(AidlConnection != null && isaidlbind){
+            unbindService(AidlConnection);
         }
 
 
@@ -172,8 +206,9 @@ public class IpcActivity extends BaseActivity {
     private ServiceConnection AidlConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            //连接后拿到 Binder，转换成 AIDL，在不同进程会返回个代理
+
             aidlitemmanager = ItemManager.Stub.asInterface(iBinder);
+            isaidlbind = true;
         }
 
         @Override
