@@ -10,28 +10,24 @@ import android.widget.Toast;
  */
 
 public class MyReceiver extends BroadcastReceiver {
-    public OnMyReceive omr;
-
-
-
-    public void setOmr(OnMyReceive omr) {
-        this.omr = omr;
-    }
-
+    public static  OnMyReceive omr;
     @Override
     public void onReceive(Context context, Intent intent) {
         if(intent !=null){
             if(intent.getAction()!=null){
                 switch (intent.getAction().toString()){
                     case Constant.STATICBROADCAST:
+
                         if(omr == null){
                             Toast.makeText(context,"omr is null",Toast.LENGTH_SHORT).show();
                         }else{
-                            omr.onmyreceive(Constant.STATICBROADCAST);
+                            omr.onmyreceive("Receive Static ");
+
                         }
 
                         break;
                     case Constant.DYNAMINCBROADCAST:
+                        omr.onmyreceive("Receive Dynamic ");
                         break;
                 }
 
@@ -43,4 +39,7 @@ public class MyReceiver extends BroadcastReceiver {
     public interface OnMyReceive{
         void onmyreceive(String content);
     }
+
+
+
 }

@@ -1,5 +1,7 @@
 package example.liumin.mystudy.broadcastreceiver;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -14,6 +16,16 @@ import example.liumin.mystudy.base.BaseActivity;
 /**
  * Created by Administrator on 2018-10-30.
  */
+
+/**
+ * 注意：  1、如果只是静态广播的话，无法设置回调监听，只能通过static的方式进行监听。如果直接set接口的话，会一直set失败，因为对象不是一个
+ *
+ *         2、静态接收和动态接收可以写在一个receiver中，然后分别进行判断，无论动态是否注册或者解注，不影响静态接收
+ *
+ *         3、
+ *
+ *
+ * */
 
 public class ReceiverActivity extends BaseActivity implements MyReceiver.OnMyReceive{
 
@@ -36,12 +48,16 @@ public class ReceiverActivity extends BaseActivity implements MyReceiver.OnMyRec
         sendstick = $(R.id.sendstick);
         regdynamic = $(R.id.regdynamic);
         unregdynamic = $(R.id.unregdynamic);
+        memo = $(R.id.rec_memo);
 
-        //绑定静态广播
-        MyReceiver  mmr = new MyReceiver();
+        //绑定静态广播,设置回调，方便在主界面中显示信息
+        MyReceiver.omr=this;
 
-        mmr.setOmr(ReceiverActivity.this);
-        getToast("setover");
+
+
+
+
+
 
         sendstatic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,9 +71,15 @@ public class ReceiverActivity extends BaseActivity implements MyReceiver.OnMyRec
         regdynamic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                mr = new MyReceiver();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction(Constant.DYNAMINCBROADCAST);
-                registerReceiver(mr,intentFilter);
+                ReceiverActivity.this.registerReceiver(mr,intentFilter);
+                getToast("reg over");
+
+
             }
         });
 
@@ -74,7 +96,12 @@ public class ReceiverActivity extends BaseActivity implements MyReceiver.OnMyRec
         unregdynamic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 unregisterReceiver(mr);
+                if(mr==null){
+                    getToast("mr is null");//注销之后不为null
+                }
+                getToast("unreg over");
             }
         });
 
@@ -95,4 +122,18 @@ public class ReceiverActivity extends BaseActivity implements MyReceiver.OnMyRec
     public void addline(String line){
         memo.setText(memo.getText()+"\n"+line);
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            unregisterReceiver(mr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            getToast("unreg error ，may be unreged");
+        }
+    }
 }
+
+
