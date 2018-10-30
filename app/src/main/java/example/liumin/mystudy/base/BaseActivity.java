@@ -32,6 +32,16 @@ public class BaseActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
     public void getToast(String temp){
         Toast.makeText(this,temp,Toast.LENGTH_SHORT).show();
     }

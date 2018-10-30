@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <Button
+        android:id="@+id/sendstatic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sendstatic"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/regdynamic"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="regdyn"
+            />
+        <Button
+            android:id="@+id/senddynamic"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="senddyn"
+            />
+
+        <Button
+            android:id="@+id/unregdynamic"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="unregdyn"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sendstick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sendstick"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/rec_memo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            />
+    </ScrollView>
+</LinearLayout>

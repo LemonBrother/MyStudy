@@ -30,6 +30,21 @@
             android:launchMode="singleTop"
             ></activity>
 
+        <activity
+            android:name=".activity.DesActivity"
+            android:launchMode="singleTop"
+            ></activity>
+
+        <activity
+            android:name=".activity.TestActivity"
+            android:launchMode="singleTop"
+            ></activity>
+
+        <activity
+            android:name=".broadcastreceiver.ReceiverActivity"
+            android:launchMode="singleTop"
+            ></activity>
+
         <service android:name=".ipc.MessengerService"
             android:process=":messengerservice"
             >
@@ -43,6 +58,14 @@
             >
 
         </service>
+
+        <receiver android:name=".broadcastreceiver.MyReceiver">
+            <intent-filter>
+
+                <action android:name="mystaticbroadcastreceiver"></action>
+            </intent-filter>
+
+        </receiver>
 
     </application>
 

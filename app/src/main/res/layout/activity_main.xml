@@ -1,26 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     >
 
-    <Button
-        android:id="@+id/jni"
+
+    <LinearLayout
+
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="JNI"
-        />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ACTIVITY"
+            />
+        <Button
+            android:id="@+id/broadcast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="broadcast"
+            />
+        <Button
+            android:id="@+id/jni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JNI"
+            />
 
-    <Button
-        android:id="@+id/ipc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="IPC"
-        />
+        <Button
+            android:id="@+id/ipc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IPC"
+            />
 
 
 
-</LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

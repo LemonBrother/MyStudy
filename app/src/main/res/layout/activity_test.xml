@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/et_transdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="input the string you what trans"
+        />
+    <Button
+        android:id="@+id/transdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TransData"
+        />
+    <EditText
+        android:id="@+id/et_transobject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="input the objectname you what trans"
+        />
+    <Button
+        android:id="@+id/transobject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TransObject"
+        />
+
+    <EditText
+        android:id="@+id/et_transadd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="input the int you what add"
+        android:inputType="number"
+        android:digits="1234567890"
+        />
+    <Button
+        android:id="@+id/transadd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TransAdd"
+        />
+
+    <TextView
+        android:id="@+id/memo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
