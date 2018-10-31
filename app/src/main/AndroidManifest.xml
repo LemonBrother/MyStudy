@@ -45,6 +45,12 @@
             android:launchMode="singleTop"
             ></activity>
 
+        <activity
+            android:name=".sqlite.SqlActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            ></activity>
+
         <service android:name=".ipc.MessengerService"
             android:process=":messengerservice"
             >

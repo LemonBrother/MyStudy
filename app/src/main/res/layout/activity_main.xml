@@ -21,10 +21,22 @@
             android:text="ACTIVITY"
             />
         <Button
+            android:id="@+id/fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fragment"
+            />
+        <Button
             android:id="@+id/broadcast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="broadcast"
+            />
+        <Button
+            android:id="@+id/sqlite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sqlite"
             />
         <Button
             android:id="@+id/jni"

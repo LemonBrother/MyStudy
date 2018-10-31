@@ -13,13 +13,14 @@ import example.liumin.mystudy.base.BaseActivity;
 import example.liumin.mystudy.broadcastreceiver.ReceiverActivity;
 import example.liumin.mystudy.ipc.IpcActivity;
 import example.liumin.mystudy.jni.JniActivity;
+import example.liumin.mystudy.sqlite.SqlActivity;
 
 /**
  * Created by Administrator on 2018-10-26.
  */
 
 public class MainActivity extends BaseActivity {
-    public Button jni,ipc,activity,broadcast;
+    public Button jni,ipc,activity,broadcast,sqlite;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity {
         ipc= $(R.id.ipc);
         activity = $(R.id.activity);
         broadcast =$(R.id.broadcast);
+        sqlite =$(R.id.sqlite);
 
         jni.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -37,25 +39,29 @@ public class MainActivity extends BaseActivity {
                 gotoActivity(JniActivity.class);
             }
         });
-
         ipc.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 gotoActivity(IpcActivity.class);
             }
         });
-
         activity.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 gotoActivity(TestActivity.class);
             }
         });
-
         broadcast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gotoActivity(ReceiverActivity.class);
+            }
+        });
+
+        sqlite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoActivity(SqlActivity.class);
             }
         });
 

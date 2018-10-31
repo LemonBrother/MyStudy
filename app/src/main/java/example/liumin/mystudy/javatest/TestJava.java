@@ -14,44 +14,25 @@ import java.net.URLConnection;
 public class TestJava {
 
     public static void main(String args[]){
-        System.out.println("helloworld");
-        try {
-            URL url = new URL("http://192.168.6.81:6278/itemtype");
-            URLConnection con = url.openConnection();
-            con.setConnectTimeout(5000);
-            con.setReadTimeout(5000);
-            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String temp="";
-            String line=null;
-//            while((line = br.readLine()) !=null){
-//
-//
-//                temp+=line;
-//            }
-
-
-            System.out.println("br.readLine()"+br.readLine());
-
-            //此处必须要这样写，窦泽将丢失一行数据。如果为一行，则后续获取都为空
-            while ((line = br.readLine()) != null ){
-                System.out.println(line);
-                temp+=line;
-            }
-
-
-            br.close();
-
-            System.out.println("temp "+temp);
-//                Thread.sleep(20*1000);//会卡死
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-
+        System.out.println("helloworld"+getres(0,1,2));
 
 
 
 
     }
+
+    public static boolean getres(int x,int y,int z){
+        if(x==0){
+            if(y==1){
+                if(z==2){
+                    return true;
+                }
+            }
+        }
+        return false;
+
+    }
+
+
+
 }
