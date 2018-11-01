@@ -22,7 +22,7 @@ import example.liumin.mystudy.base.BaseActivity;
  *
  *         2、静态接收和动态接收可以写在一个receiver中，然后分别进行判断，无论动态是否注册或者解注，不影响静态接收
  *
- *         3、
+ *         3、这里只是演示作用，所以设置了静态
  *
  *
  * */

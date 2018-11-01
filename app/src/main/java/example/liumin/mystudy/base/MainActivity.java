@@ -11,6 +11,7 @@ import example.liumin.mystudy.R;
 import example.liumin.mystudy.activity.TestActivity;
 import example.liumin.mystudy.base.BaseActivity;
 import example.liumin.mystudy.broadcastreceiver.ReceiverActivity;
+import example.liumin.mystudy.fragment.MyFragmentActivity;
 import example.liumin.mystudy.ipc.IpcActivity;
 import example.liumin.mystudy.jni.JniActivity;
 import example.liumin.mystudy.sqlite.SqlActivity;
@@ -20,7 +21,7 @@ import example.liumin.mystudy.sqlite.SqlActivity;
  */
 
 public class MainActivity extends BaseActivity {
-    public Button jni,ipc,activity,broadcast,sqlite;
+    public Button jni,ipc,activity,broadcast,sqlite,fragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity {
         activity = $(R.id.activity);
         broadcast =$(R.id.broadcast);
         sqlite =$(R.id.sqlite);
+        fragment = $(R.id.fragment);
 
         jni.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -62,6 +64,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 gotoActivity(SqlActivity.class);
+            }
+        });
+
+        fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoActivity(MyFragmentActivity.class);
             }
         });
 

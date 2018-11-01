@@ -38,6 +38,7 @@
         <activity
             android:name=".activity.TestActivity"
             android:launchMode="singleTop"
+            android:screenOrientation="sensor"
             ></activity>
 
         <activity
@@ -49,6 +50,13 @@
             android:name=".sqlite.SqlActivity"
             android:launchMode="singleTop"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            ></activity>
+
+        <activity
+            android:name=".fragment.MyFragmentActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:screenOrientation="sensor"
             ></activity>
 
         <service android:name=".ipc.MessengerService"
