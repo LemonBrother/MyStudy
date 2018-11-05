@@ -3,13 +3,12 @@ package example.liumin.mystudy.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import example.liumin.mystudy.R;
 import example.liumin.mystudy.activity.TestActivity;
-import example.liumin.mystudy.base.BaseActivity;
+import example.liumin.mystudy.thread.AsyncTaskActivity;
 import example.liumin.mystudy.broadcastreceiver.ReceiverActivity;
 import example.liumin.mystudy.fragment.MyFragmentActivity;
 import example.liumin.mystudy.ipc.IpcActivity;
@@ -21,7 +20,7 @@ import example.liumin.mystudy.sqlite.SqlActivity;
  */
 
 public class MainActivity extends BaseActivity {
-    public Button jni,ipc,activity,broadcast,sqlite,fragment;
+    public Button jni,ipc,activity,broadcast,sqlite,fragment,asynctask;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +33,7 @@ public class MainActivity extends BaseActivity {
         broadcast =$(R.id.broadcast);
         sqlite =$(R.id.sqlite);
         fragment = $(R.id.fragment);
+        asynctask = $(R.id.asynctask);
 
         jni.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -71,6 +71,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 gotoActivity(MyFragmentActivity.class);
+            }
+        });
+
+        asynctask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoActivity(AsyncTaskActivity.class);
             }
         });
 

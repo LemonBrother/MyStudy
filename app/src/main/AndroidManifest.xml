@@ -59,6 +59,13 @@
             android:screenOrientation="sensor"
             ></activity>
 
+        <activity
+            android:name=".thread.AsyncTaskActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:screenOrientation="sensor"
+            ></activity>
+
         <service android:name=".ipc.MessengerService"
             android:process=":messengerservice"
             >

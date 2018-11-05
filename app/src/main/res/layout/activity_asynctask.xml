@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="----asynctask----"
+        android:gravity="center"
+        android:textSize="8sp"
+        />
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/asynctask_begin"
+            android:text="begin"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/asynctask_begin_parallel"
+            android:text="begin-parallel"
+            />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/asynctask_processbar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+
+        />
+    <ProgressBar
+        android:id="@+id/asynctask_processbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+
+        />
+    <ProgressBar
+        android:id="@+id/asynctask_processbar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+
+        />
+    <ProgressBar
+        android:id="@+id/asynctask_processbar4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+
+        />
+    <ProgressBar
+        android:id="@+id/asynctask_processbar5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+
+        />
+    <ProgressBar
+        android:id="@+id/asynctask_processbar6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="↓↓↓----thread----↓↓↓↓"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:textSize="8sp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:id="@+id/thread_begin"
+        android:text="begin"
+        />
+
+
+
+
+</LinearLayout>
