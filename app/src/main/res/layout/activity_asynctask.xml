@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
-        android:text="----asynctask----"
+        android:text="↓↓↓↓----asynctask----↓↓↓↓"
         android:gravity="center"
         android:textSize="8sp"
         />
@@ -35,6 +35,25 @@
             android:text="begin-parallel"
             />
     </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:text="↓↓↓----thread----↓↓↓↓"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:textSize="8sp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:id="@+id/thread_begin"
+        android:text="begin"
+        />
 
     <ProgressBar
         android:id="@+id/asynctask_processbar1"
@@ -76,25 +95,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@android:style/Widget.ProgressBar.Horizontal"
-
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:text="↓↓↓----thread----↓↓↓↓"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:textSize="8sp"
-        />
+    <LinearLayout
 
-    <Button
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
-        android:id="@+id/thread_begin"
-        android:text="begin"
-        />
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/asynctask_sendmessage"
+            android:text="begin"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/asynctask_stop"
+            android:text="stop"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/asynctask_isalive"
+            android:text="isalive"
+            />
+
+
+    </LinearLayout>
 
 
 

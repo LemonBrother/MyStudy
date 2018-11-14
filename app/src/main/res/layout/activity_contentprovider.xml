@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        >
+
+        <Button
+            android:id="@+id/cp_sel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QUERY"
+            />
+
+        <Button
+            android:id="@+id/cp_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            />
+
+        <Button
+            android:id="@+id/cp_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            />
+        <Button
+            android:id="@+id/cp_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPDATE"
+            />
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cp_rv"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:layout_width="match_parent"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

@@ -11,6 +11,10 @@ public class Item {
         this.id= builder.itemid;
         this.name = builder.itemname;
     }
+    public Item(String id,String name){
+        this.name = name;
+        this.id=id;
+    }
 
     public String getId() {
         return id;
@@ -30,7 +34,7 @@ public class Item {
 
 
 
-    static class  Builder{
+    public static class  Builder{
         private String itemid,itemname;
         public Builder name(String name ){
             this.itemname = name;

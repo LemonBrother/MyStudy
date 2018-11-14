@@ -44,6 +44,7 @@ public class BaseFragment extends Fragment {
         addstate("onCreateView");
 
         View v = inflater.inflate(R.layout.fragment_static,container,false);
+        //第三个参数是   是否将view插入跟布局，因为系统已经将view插入了，所以这边选择false
         tip = $(v,R.id.fragment_tip);
         tip.setText(TAG);
 

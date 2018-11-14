@@ -66,6 +66,13 @@
             android:screenOrientation="sensor"
             ></activity>
 
+        <activity
+            android:name=".contentprovider.ContentProviderActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:screenOrientation="sensor"
+            ></activity>
+
         <service android:name=".ipc.MessengerService"
             android:process=":messengerservice"
             >
@@ -87,6 +94,13 @@
             </intent-filter>
 
         </receiver>
+        
+        
+        <provider
+            android:authorities="example.liumin.mystudy.contentprovider"
+            android:name=".contentprovider.MyProvider">
+
+        </provider>
 
     </application>
 

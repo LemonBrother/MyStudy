@@ -46,6 +46,12 @@
             android:text="Asynctask"
             />
         <Button
+            android:id="@+id/contentprovider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="contentprovider"
+            />
+        <Button
             android:id="@+id/jni"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

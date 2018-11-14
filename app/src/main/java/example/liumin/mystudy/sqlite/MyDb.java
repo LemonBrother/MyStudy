@@ -24,6 +24,7 @@ public class MyDb extends SQLiteOpenHelper {
 
     public Context context;
     public static final String DBNAME ="MyDb";
+    public static final String ITEMTABLENAME = "items";
     private static MyDb Instance;
     private  static SQLiteDatabase SD;
 

@@ -13,6 +13,14 @@ import example.liumin.mystudy.base.BaseActivity;
 
 /**
  * Created by Administrator on 2018-10-30.
+ *
+ *      1、在不同屏幕方向，显示不同步，只需要在布局中，增加layout-land,layout-port文件夹，然后存入布局，
+ *          在屏幕旋转的时候，系统会自动调用不同的布局
+ *
+ *      2、
+ *
+ *
+ *
  */
 
 public class TestActivity extends BaseActivity {
