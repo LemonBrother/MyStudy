@@ -3,6 +3,8 @@ package example.liumin.mystudy.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +27,10 @@ import example.liumin.mystudy.base.BaseActivity;
 
 public class TestActivity extends BaseActivity {
     public static final String TAG="TestActivity";
+
+
+
+
     public static final int REQUESTCODE=1000;
     public static final int RESULTCODE = 2000;
     public TextView memo;
@@ -34,6 +40,14 @@ public class TestActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //在此处编写使用大概流程，用于展示
+        super.USETEXT = "TEST";
+        super.USEPICPATH="";    //ASSETS中的图片名称
+
+
+
+
         setContentView(R.layout.activity_test);
         memo = $(R.id.memo);
         transdata = $(R.id.transdata);
@@ -75,11 +89,15 @@ public class TestActivity extends BaseActivity {
         transadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(TestActivity.this,DesActivity.class);
-                i.putExtra("type",2);
-                i.putExtra("oldi",Integer.valueOf(et_add.getText().toString().trim()));
+                if(!TextUtils.isEmpty(et_add.getText().toString().trim())){
+                    Intent i = new Intent(TestActivity.this,DesActivity.class);
+                    i.putExtra("type",2);
+                    i.putExtra("oldi",Integer.valueOf(et_add.getText().toString().trim()));
+                    startActivityForResult(i,REQUESTCODE);
+                }else{
+                    getToast("请先输入数字");
+                }
 
-                startActivityForResult(i,REQUESTCODE);
             }
         });
 

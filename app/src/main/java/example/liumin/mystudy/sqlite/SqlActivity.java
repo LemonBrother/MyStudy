@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,9 +68,15 @@ public class SqlActivity extends BaseActivity {
         del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyDb.getSD(SqlActivity.this).execSQL("delete from items where itemname like '%"+et.getText().toString().trim()+"%'");
-                getToast("delete  over");
-                getdata();
+                //进行判断防止不输入内容全部删除
+                if(!TextUtils.isEmpty(et.getText().toString().trim())){
+                    MyDb.getSD(SqlActivity.this).execSQL("delete from items where itemname like '%"+et.getText().toString().trim()+"%'");
+                    getToast("delete  over");
+                    getdata();
+                }else{
+                    getToast("intput first");
+                }
+
             }
         });
 

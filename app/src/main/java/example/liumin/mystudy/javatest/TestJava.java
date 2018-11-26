@@ -14,8 +14,8 @@ import java.net.URLConnection;
 public class TestJava {
 
     public static void main(String args[]){
-        System.out.println("helloworld"+getres(0,1,2));
-
+        //System.out.println("helloworld"+getres(0,1,2));
+        System.out.println(getBoolean()+"");
 
 
 
@@ -30,6 +30,16 @@ public class TestJava {
             }
         }
         return false;
+
+    }
+
+    public static boolean getBoolean(){
+        int x=20,y=30;
+        boolean b;
+
+        b= x>50&&y>60||x>50&&y<-60||x>10  ;
+
+        return b;
 
     }
 

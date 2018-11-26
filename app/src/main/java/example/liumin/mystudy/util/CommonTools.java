@@ -9,8 +9,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -28,6 +31,7 @@ import android.view.inputmethod.InputMethodManager;
 
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.security.MessageDigest;
@@ -57,6 +61,7 @@ public class CommonTools {
     private static String DeviceId;                                         //设备ID
     private static CharSequence FormatDeviceId;                             //格式化后的设备ID
     private static   long T1=0,T2=0;                                    //用于判断点击按钮时间间隔的两个变量
+    public static final String CONTENTPROVIDERIMAGENAME="contentProvider.png";
 
 
     /**
@@ -822,6 +827,25 @@ public class CommonTools {
         }
         return false;
     }
+
+    /* 读取Assets文件夹中的图片资源
+         * @param context
+         * @param fileName 图片名称
+         * @return
+         */
+    public static Bitmap getImageFromAssetsFile(Context context, String fileName) {
+        Bitmap image = null;
+        AssetManager am = context.getResources().getAssets();
+        try {
+            InputStream is = am.open(fileName);
+            image = BitmapFactory.decodeStream(is);
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return image;
+    }
+
 
 
 }

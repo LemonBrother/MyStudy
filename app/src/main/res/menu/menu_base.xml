@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/cp_menu_image"
+        android:id="@+id/base_menu_image"
         android:title="image"
         app:showAsAction="always"
         android:orderInCategory="100"
@@ -10,7 +10,7 @@
         ></item>
 
     <item
-        android:id="@+id/cp_menu_rtext"
+        android:id="@+id/base_menu_text"
         android:title="text"
         app:showAsAction="always"
         android:orderInCategory="200"

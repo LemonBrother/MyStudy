@@ -24,6 +24,7 @@ import example.liumin.mystudy.R;
 import example.liumin.mystudy.base.BaseActivity;
 import example.liumin.mystudy.sqlite.Item;
 import example.liumin.mystudy.sqlite.MyAdapter;
+import example.liumin.mystudy.util.CommonTools;
 
 /**
  * Created by Administrator on 2018-11-07.
@@ -40,6 +41,9 @@ import example.liumin.mystudy.sqlite.MyAdapter;
 
 public class ContentProviderActivity extends BaseActivity {
 
+
+
+
     public Button query,insert,delete,update;
     public RecyclerView rv;
     public ContentResolver resolver;
@@ -50,6 +54,17 @@ public class ContentProviderActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        super.USETEXT="\n" +
+                "1、正常创建MyProvider类，重写各种方法，并初始化urimatcher" +
+                "\n2、在mainfext中进行声明，authorities为类别标签，name是类名，：process是新开线程" +
+                "\n3、使用类正常getContentResolver，并通过uri进行匹配";
+        super.USEPICPATH="contentProvider.png";
+
+
+
+
+
         setContentView(R.layout.activity_contentprovider);
         query = $(R.id.cp_sel);
         insert = $(R.id.cp_add);
@@ -78,10 +93,12 @@ public class ContentProviderActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
+                //contentvalue value字段只能插入基础数据类型
                 // 插入表中数据
                 ContentValues values = new ContentValues();
                 values.put("itemid", new Random().nextInt(100));
                 values.put("itemname", "name:"+new Random().nextInt(100));
+
                 // 通过ContentResolver 根据URI 向ContentProvider中插入数据
                 resolver.insert(uri_user,values);
                 getToast("insert over");
@@ -128,25 +145,6 @@ public class ContentProviderActivity extends BaseActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_cp,menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch(item.getItemId()){
-            case  R.id.cp_image :
-
-                break;
-            case R.menu.te :
-
-                break;
-        }
-        getToast("hello item");
-        return true;
-    }
 }
