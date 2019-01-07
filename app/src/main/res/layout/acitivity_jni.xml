@@ -20,6 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Please enter 10 digit number"
+        android:text="1234567890"
+        android:digits="0123456789"
         />
 
     <Button
@@ -28,6 +30,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="getformatstring"
+        />
+
+    <Button
+        android:id="@+id/getmulti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="getmulti"
         />
 
 </LinearLayout>
