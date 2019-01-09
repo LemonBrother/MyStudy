@@ -15,7 +15,7 @@ import example.liumin.mystudy.base.BaseActivity;
  */
 
 public class JniActivity extends BaseActivity {
-    public Button getstring,getformatstring;
+    public Button getstring,getformatstring,getmulty;
     public EditText et;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class JniActivity extends BaseActivity {
         getstring = $(R.id.getstring);
         getformatstring = $(R.id.getformatstring);
         et = $(R.id.et);
+        getmulty = $(R.id.getmulti);
 
         getstring.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -49,6 +50,13 @@ public class JniActivity extends BaseActivity {
                 }
 
 
+            }
+        });
+
+        getmulty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getToast(JniUtils.getMultiString(5,6));
             }
         });
 

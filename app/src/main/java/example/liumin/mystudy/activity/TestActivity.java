@@ -1,4 +1,4 @@
-﻿package example.liumin.mystudy.activity;
+package example.liumin.mystudy.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,10 +16,9 @@ import example.liumin.mystudy.base.BaseActivity;
 /**
  * Created by Administrator on 2018-10-30.
  *
- *      1、在不同屏幕方向，显示不同步，只需要在布局中，增加layout-land,layout-port文件夹，然后存入布局，
- *          在屏幕旋转的时候，系统会自动调用不同的布局
  *
- *      2、
+ *
+ *      2、add  layout-land,layout-port folder to layout,will use when screen turn arround.syste, will auto use the layout
  *
  *
  *
@@ -41,9 +40,9 @@ public class TestActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //在此处编写使用大概流程，用于展示
+        //add useinfo in here.used be in activity showuseinfo
         super.USETEXT = "TEST";
-        super.USEPICPATH="";    //ASSETS中的图片名称
+        super.USEPICPATH="";    // pic name in ASSETS  folder
 
 
 
@@ -63,9 +62,9 @@ public class TestActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                //两种方式传递基础数据，直接put和放在Bundle中
+                //two way in transdata
 
-                //bundle 类似于hashmap，可以存储多个键值对
+                //bundle likes hashmap，can save many key --  values
                 Intent i = new Intent(TestActivity.this,DesActivity.class);
                 i.putExtra("type",0);
                 i.putExtra("key",et_data.getText().toString().trim()+"from intent");
@@ -95,7 +94,7 @@ public class TestActivity extends BaseActivity {
                     i.putExtra("oldi",Integer.valueOf(et_add.getText().toString().trim()));
                     startActivityForResult(i,REQUESTCODE);
                 }else{
-                    getToast("请先输入数字");
+                    getToast("please input num");
                 }
 
             }
@@ -105,8 +104,6 @@ public class TestActivity extends BaseActivity {
             @Override
             public boolean onLongClick(View view) {
                 memo.setText("");
-
-
                 return true;
             }
         });

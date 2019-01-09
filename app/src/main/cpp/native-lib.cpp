@@ -101,10 +101,6 @@ Java_example_liumin_mystudy_jni_JniUtils_getFormatString(
     delete s3;
     env->ReleaseStringUTFChars(phoneid,str);
 
-
-
-
-
     return env->NewStringUTF( x);
 
 
