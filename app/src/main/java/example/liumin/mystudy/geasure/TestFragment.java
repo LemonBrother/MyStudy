@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import example.liumin.mystudy.R;
 
 public class TestFragment extends Fragment {
     public GestureDetector mGestureDetector;
+    public ScaleGestureDetector mScaleGestureDetector;
     public static TestFragment mInstance;
 
     public static TestFragment getInstance(){
@@ -41,10 +43,11 @@ public class TestFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initGetsure();
+        initScale();
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                mGestureDetector.onTouchEvent(event);
+                boolean b = event.getPointerCount() == 1?mGestureDetector.onTouchEvent(event): mScaleGestureDetector.onTouchEvent(event);
                 return true;
             }
         });
@@ -114,6 +117,27 @@ public class TestFragment extends Fragment {
             public boolean onContextClick(MotionEvent e) {
                 Toast.makeText(getActivity(),"onContextClick",Toast.LENGTH_SHORT).show();
                 return super.onContextClick(e);
+            }
+        });
+    }
+
+    public void initScale(){
+        mScaleGestureDetector = new ScaleGestureDetector(getActivity(), new ScaleGestureDetector.OnScaleGestureListener() {
+            @Override
+            public boolean onScale(ScaleGestureDetector detector) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onScaleBegin(ScaleGestureDetector detector) {
+                Toast.makeText(getActivity(),"onScaleBegin",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            @Override
+            public void onScaleEnd(ScaleGestureDetector detector) {
+
             }
         });
     }
